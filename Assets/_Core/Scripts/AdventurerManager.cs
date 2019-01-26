@@ -10,6 +10,8 @@ namespace Assets._Core.Scripts
 		private List<DungeonTrap> _allTraps;
 		public List<DungeonSequence> Sequences { get; private set; }
 
+		public List<DungeonSequenceObject> DungeonSequences;
+
 		public void Equip(List<DungeonItem> items)
 		{
 			_equippedItems = items;
