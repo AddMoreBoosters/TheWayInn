@@ -7,5 +7,33 @@ namespace Assets._Core.Scripts
 		// Name of current speaker
 		// Slideshow-system for next text-slide
 		// Visual feedback for current speaker
+
+		private int _currentLineIndex;
+
+
+		public void ShowDialogues(bool restart = false)
+		{
+			gameObject.SetActive(true);
+
+			if (restart)
+				_currentLineIndex = 0;
+
+			FindObjectOfType<MainManager>().ShowOnly(transform.GetChild(_currentLineIndex).gameObject);
+		}
+
+		public void NextLine()
+		{
+			ShowDialogues();
+			_currentLineIndex++;
+			FindObjectOfType<MainManager>().ShowOnly(transform.GetChild(_currentLineIndex).gameObject);
+		}
+
+		public void HideDialogues()
+		{
+			foreach (Transform line in transform)
+			{
+				line.gameObject.SetActive(false);
+			}
+		}
 	}
 }
