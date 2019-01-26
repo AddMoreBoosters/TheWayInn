@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4f866067a6f9b443b3e3a7725b2ffdb, type: 3}
-  m_Name: New Dungeon Sequence Object
+  m_Name: Falling ceiling
   m_EditorClassIdentifier: 
-  TrapName: 
-  CorrectItemName: 
+  TrapName: Falling ceiling
+  CorrectItemName: Strength Potion
   BeforeSequenceSnap: {fileID: 0}
   AfterSequenceSnap: {fileID: 0}
