@@ -16,9 +16,9 @@ namespace Assets._Core.Scripts
 
 			_allItems = new List<DungeonItem>
 			{
-				new DungeonItem("Silver rapier", null),
-				new DungeonItem("Strength potion", null),
-				new DungeonItem("Holy water", null)
+				new DungeonItem("Silver rapier"),
+				new DungeonItem("Strength potion"),
+				new DungeonItem("Holy water")
 			};
 
 			_allTraps = new List<DungeonTrap>
@@ -39,18 +39,6 @@ namespace Assets._Core.Scripts
 		public void TempFixedEquip()
 		{
 			Equip(_allItems);
-		}
-
-		public List<bool> GetResult()
-		{
-			List<bool> result = new List<bool>();
-			for (var i = 0; i < Sequences.Count; i++)
-			{
-				DungeonSequence sequence = Sequences[i];
-				result.Add(sequence.CorrectItem == _equippedItems[i]);
-			}
-
-			return result;
 		}
 	}
 }

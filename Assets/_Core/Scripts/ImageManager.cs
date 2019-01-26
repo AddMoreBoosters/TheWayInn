@@ -24,10 +24,15 @@ namespace Assets._Core.Scripts
 			}
 
 			List<Sprite> newSnaps = new List<Sprite>();
-			/*foreach (var VARIABLE in sw)
+			foreach (DungeonSequence s in sequences)
 			{
-				
-			}*/
+				newSnaps.Add(s.BeforeSequenceSnap);
+
+				if (s.Success)
+					newSnaps.Add(s.AfterSequenceSnap);
+
+				else break;
+			}
 		}
 	}
 }

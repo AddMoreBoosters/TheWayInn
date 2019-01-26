@@ -44,10 +44,10 @@ namespace Assets._Core.Scripts
 		public string Name { get; }
 		public Sprite Sprite { get; }
 
-		public DungeonItem(string name, Sprite sprite)
+		public DungeonItem(string name)
 		{
 			Name = name;
-			Sprite = sprite;
+			//Sprite = sprite;
 		}
 	}
 }
