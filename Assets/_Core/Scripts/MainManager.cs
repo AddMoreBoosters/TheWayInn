@@ -25,6 +25,7 @@ namespace Assets._Core.Scripts
 			_introContainer.gameObject.SetActive(false);
 			_backgroundContainer.gameObject.SetActive(false);
 			_winScreen.SetActive(false);
+			FindObjectOfType<DialogueManager>().HideDialogues();
 		}
 
 		private void StartIntro()
