@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
 
     public Transform parentToReturnTo = null;
@@ -25,4 +24,14 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         this.transform.SetParent(parentToReturnTo);
         GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+	    transform.DOScale(Vector3.one * 1.1f, .2f);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+	{
+		transform.DOScale(Vector3.one, .2f);
+	}
 }
