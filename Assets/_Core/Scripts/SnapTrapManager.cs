@@ -12,13 +12,14 @@ namespace Assets._Core.Scripts
 	public class SnapTrapManager : MonoBehaviour
 	{
 		[SerializeField] private Button _snapTargetButton; // Also has image
+		private Image SnapImage => _snapTargetButton.GetComponent<Image>();
 
-		private List<Sprite> _newSnaps;
+		private Stack<Sprite> _newSnaps;
 		private List<Sprite> _savedSnaps;
 
 		private bool _inited;
 
-		public void SetNewSnaps(List<DungeonSequence> sequences)
+		public void SetNewSnaps(List<DungeonSequenceObject> sequences, List<string> eqippedItems)
 		{
 			if (!_inited)
 			{
@@ -28,28 +29,32 @@ namespace Assets._Core.Scripts
 				_inited = true;
 			}
 
-			List<Sprite> newSnaps = new List<Sprite>();
-			foreach (DungeonSequence s in sequences)
+			_newSnaps = new Stack<Sprite>();
+			for (var i = 0; i < sequences.Count; i++)
 			{
-				newSnaps.Add(s.BeforeSequenceSnap);
+				DungeonSequenceObject s = sequences[i];
+				_newSnaps.Push(s.BeforeSequenceSnap);
 
-				if (s.Success)
+				// Matching item
+				if (s.CorrectItemName == eqippedItems[i])
 				{
-					newSnaps.Add(s.AfterSequenceSnap);
-					print($"{s.Trap.Name} was successful");
+					_newSnaps.Push(s.AfterSequenceSnap);
+					print($"{s.TrapName} was successful");
 				}
 
 				else
 				{
-					print($"{s.Trap.Name} failed");
+					print($"{s.TrapName} failed");
 					break;
 				}
 			}
+
+			SnapImage.sprite = _newSnaps.Pop();
 		}
 
 		private void OnSnapClick()
 		{
-
+			SnapImage.sprite = _newSnaps.Pop();
 		}
 
 		public void SetTriggerEvent(EventTrigger trigger, EventTriggerType triggerType, Action callAction)

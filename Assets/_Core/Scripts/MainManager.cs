@@ -54,7 +54,6 @@ namespace Assets._Core.Scripts
 		public void SendOffAdventurer()
 		{
 			_backgroundContainer.gameObject.SetActive(false);
-			_adventurerManager.TempFixedEquip();
 			StartCoroutine(NewDayTimer());
 		}
 		
