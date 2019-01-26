@@ -8,6 +8,7 @@ public class DropZone : MonoBehaviour, IDropHandler
 
     public bool itemSlot;
     public bool filled;
+    public string itemName = "";
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -18,6 +19,7 @@ public class DropZone : MonoBehaviour, IDropHandler
 
             if (itemSlot)
             {
+                itemName = eventData.pointerDrag.name;
                 filled = true;
                 GetComponentInParent<ItemSelectionManager>().checkSelection();
             }

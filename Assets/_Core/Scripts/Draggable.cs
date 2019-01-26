@@ -10,11 +10,15 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public void OnBeginDrag(PointerEventData eventData)
     {
         parentToReturnTo = this.transform.parent;
-        DropZone itemSlot = GetComponentInParent<DropZone>();
-        if (itemSlot != null)
+        DropZone parentDropZone = GetComponentInParent<DropZone>();
+        if (parentDropZone != null)
         {
-            itemSlot.filled = false;
-            GetComponentInParent<ItemSelectionManager>().checkSelection();
+            if(parentDropZone.itemSlot)
+            {
+                parentDropZone.filled = false;
+                parentDropZone.itemName = "";
+                GetComponentInParent<ItemSelectionManager>().checkSelection();
+            }
         }
         this.transform.SetParent(this.transform.parent.parent);
         GetComponent<CanvasGroup>().blocksRaycasts = false;
