@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ namespace Assets._Core.Scripts
 		[Space]
 		[SerializeField] private AdventurerManager _adventurerManager;
 		[SerializeField] private DialogueManager _dialogueManager;
-		[SerializeField] private ImageManager _imageManager;
+		[SerializeField] private SnapTrapManager _snapTrapManager;
 		[Space]
 		[SerializeField] private GameObject _startScreen;
 		[SerializeField] private Transform _introContainer;
@@ -50,11 +51,25 @@ namespace Assets._Core.Scripts
 		}
 
 		/// <summary> Wake up, fade in screen with phone, and new notifications </summary>
-		public void GetReport()
+		public void SendOffAdventurer()
 		{
-			// Animation?
-			// Display phone
-
+			_backgroundContainer.gameObject.SetActive(false);
+			_adventurerManager.TempFixedEquip();
+			StartCoroutine(NewDayTimer());
+		}
+		
+		// Animates sequence, going to bed, waking up, checking phone
+		private IEnumerator NewDayTimer()
+		{
+			print("Bye adventurer");
+			yield return new WaitForSeconds(1);
+			print("Goodnight");
+			yield return new WaitForSeconds(1);
+			print("Good morning");
+			yield return new WaitForSeconds(1);
+			print("Checks phone");
+			_snapTrapManager.SetNewSnaps(_adventurerManager.Sequences);
+			NewAdventurer();
 		}
 
 		/// <summary> Deactivates all siblings except one </summary>

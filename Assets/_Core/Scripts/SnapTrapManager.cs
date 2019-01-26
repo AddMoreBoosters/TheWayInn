@@ -6,7 +6,7 @@ namespace Assets._Core.Scripts
 {
 	// Phone-manager or snapchat-manager
 	// Rename to [nameof snapchat-clone]Manager
-	public class ImageManager : MonoBehaviour
+	public class SnapTrapManager : MonoBehaviour
 	{
 		[SerializeField] private Image _snapSpriteTarget; // Also has button
 
@@ -29,9 +29,16 @@ namespace Assets._Core.Scripts
 				newSnaps.Add(s.BeforeSequenceSnap);
 
 				if (s.Success)
+				{
 					newSnaps.Add(s.AfterSequenceSnap);
+					print($"{s.Trap.Name} was successful");
+				}
 
-				else break;
+				else
+				{
+					print($"{s.Trap.Name} failed");
+					break;
+				}
 			}
 		}
 	}

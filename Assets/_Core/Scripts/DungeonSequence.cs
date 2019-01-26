@@ -22,11 +22,6 @@ namespace Assets._Core.Scripts
 			BeforeSequenceSnap = beforeSnap;
 			AfterSequenceSnap = afterSnap;
 		}
-
-		public bool MatchesItem(DungeonItem item)
-		{
-			return item.Name == CorrectItem.Name;
-		}
 	}
 
 	public class DungeonTrap
@@ -47,7 +42,7 @@ namespace Assets._Core.Scripts
 		public DungeonItem(string name)
 		{
 			Name = name;
-			//Sprite = sprite;
+			//'Sprite = sprite;
 		}
 	}
 }
