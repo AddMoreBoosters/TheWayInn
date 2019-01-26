@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Assets._Core.Scripts
@@ -8,8 +11,9 @@ namespace Assets._Core.Scripts
 	// Rename to [nameof snapchat-clone]Manager
 	public class SnapTrapManager : MonoBehaviour
 	{
-		[SerializeField] private Image _snapSpriteTarget; // Also has button
+		[SerializeField] private Button _snapTargetButton; // Also has image
 
+		private List<Sprite> _newSnaps;
 		private List<Sprite> _savedSnaps;
 
 		private bool _inited;
@@ -19,6 +23,7 @@ namespace Assets._Core.Scripts
 			if (!_inited)
 			{
 				// Set click-events for button
+				_snapTargetButton.onClick.AddListener(OnSnapClick);
 
 				_inited = true;
 			}
@@ -40,6 +45,18 @@ namespace Assets._Core.Scripts
 					break;
 				}
 			}
+		}
+
+		private void OnSnapClick()
+		{
+
+		}
+
+		public void SetTriggerEvent(EventTrigger trigger, EventTriggerType triggerType, Action callAction)
+		{
+			EventTrigger.Entry entry = new EventTrigger.Entry { eventID = triggerType };
+			entry.callback.AddListener(_ => callAction());
+			trigger.triggers.Add(entry);
 		}
 	}
 }
