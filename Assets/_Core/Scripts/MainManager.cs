@@ -40,7 +40,7 @@ namespace Assets._Core.Scripts
 		}
 
 		/// <summary> Starting the adventurer-cycle </summary>
-		private void NewAdventurer()
+		public void NewAdventurer()
 		{
 			// Randomize adventurer-silhouette or w/e
 
@@ -67,8 +67,8 @@ namespace Assets._Core.Scripts
 			print("Good morning");
 			yield return new WaitForSeconds(1);
 			print("Checks phone");
+			ShowOnly(_backgroundContainer.gameObject);
 			_snapTrapManager.SetNewSnaps(_adventurerManager.DungeonSequences, _adventurerManager.EquippedItems);
-			NewAdventurer();
 		}
 
 		public void ShowOnlyNS(GameObject slide)

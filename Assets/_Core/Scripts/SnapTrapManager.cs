@@ -13,6 +13,7 @@ namespace Assets._Core.Scripts
 	{
 		[SerializeField] private GameObject _snapTrapScreen;
 		[SerializeField] private Button _snapTargetButton; // Also has image
+		[SerializeField] private Button _nextButton;
 		private Image SnapImage => _snapTargetButton.GetComponent<Image>();
 
 		private Stack<Sprite> _newSnaps;
@@ -50,13 +51,18 @@ namespace Assets._Core.Scripts
 				}
 			}
 
+			_nextButton.interactable = false;
 			MainManager.ShowOnly(_snapTrapScreen);
 			SnapImage.sprite = _newSnaps.Pop();
 		}
 
 		private void OnSnapClick()
 		{
-			SnapImage.sprite = _newSnaps.Pop();
+			if (_newSnaps.Count > 0)
+				SnapImage.sprite = _newSnaps.Pop();
+
+			if (_newSnaps.Count == 0)
+				_nextButton.interactable = true;
 		}
 
 		public void SetTriggerEvent(EventTrigger trigger, EventTriggerType triggerType, Action callAction)

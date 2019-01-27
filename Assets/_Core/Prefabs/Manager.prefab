@@ -83,3 +83,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _snapTrapScreen: {fileID: 0}
   _snapTargetButton: {fileID: 0}
+  _nextButton: {fileID: 0}
