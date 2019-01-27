@@ -67,12 +67,17 @@ namespace Assets._Core.Scripts
 			print("Good morning");
 			yield return new WaitForSeconds(1);
 			print("Checks phone");
-			_snapTrapManager.SetNewSnaps(_adventurerManager.Sequences);
+			_snapTrapManager.SetNewSnaps(_adventurerManager.DungeonSequences, _adventurerManager.EquippedItems);
 			NewAdventurer();
 		}
 
+		public void ShowOnlyNS(GameObject slide)
+		{
+			ShowOnly(slide);
+		}
+
 		/// <summary> Deactivates all siblings except one </summary>
-		public void ShowOnly(GameObject slide)
+		public static void ShowOnly(GameObject slide)
 		{
 			foreach (Transform sibling in slide.transform.parent)
 			{

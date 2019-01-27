@@ -18,14 +18,14 @@ namespace Assets._Core.Scripts
 			if (restart)
 				_currentLineIndex = 0;
 
-			FindObjectOfType<MainManager>().ShowOnly(transform.GetChild(_currentLineIndex).gameObject);
+			MainManager.ShowOnly(transform.GetChild(_currentLineIndex).gameObject);
 		}
 
 		public void NextLine()
 		{
 			ShowDialogues();
 			_currentLineIndex++;
-			FindObjectOfType<MainManager>().ShowOnly(transform.GetChild(_currentLineIndex).gameObject);
+			MainManager.ShowOnly(transform.GetChild(_currentLineIndex).gameObject);
 		}
 
 		public void HideDialogues()

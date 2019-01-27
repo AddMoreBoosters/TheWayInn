@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets._Core.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,5 +34,15 @@ public class ItemSelectionManager : MonoBehaviour
         {
             nextButton.interactable = false;
         }
+    }
+
+    public void ConfirmSelected()
+    {
+		FindObjectOfType<AdventurerManager>().Equip(new List<string>
+		{
+			"Bunny Slippers",
+			"Climbing Equipment",
+			"Strength Potion"
+		});
     }
 }

@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1501356646003376445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1501356646003376447}
+  - component: {fileID: 1501356646003376444}
+  - component: {fileID: 1501356646003376433}
+  - component: {fileID: 1501356646003376446}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1501356646003376447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501356646003376445}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1501356646003376444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501356646003376445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4d3dfe497351d43be9c981ae6097bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startButton: {fileID: 0}
+  _adventurerManager: {fileID: 1501356646003376433}
+  _dialogueManager: {fileID: 0}
+  _snapTrapManager: {fileID: 1501356646003376446}
+  _startScreen: {fileID: 0}
+  _introContainer: {fileID: 0}
+  _backgroundContainer: {fileID: 0}
+  _winScreen: {fileID: 0}
+--- !u!114 &1501356646003376433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501356646003376445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89cee9a766d00a444b5c67d8c054b27e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DungeonSequences:
+  - {fileID: 11400000, guid: 753d158b6c77cc0438116e7364c6dda8, type: 2}
+  - {fileID: 11400000, guid: 42504bb17d594614493a2f2ecb8abf02, type: 2}
+  - {fileID: 11400000, guid: 741cc6783b0a4d84cb1b2d5a1e8fc03f, type: 2}
+--- !u!114 &1501356646003376446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501356646003376445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c6c790d99b65a429160b4941c5c629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snapTrapScreen: {fileID: 0}
+  _snapTargetButton: {fileID: 0}

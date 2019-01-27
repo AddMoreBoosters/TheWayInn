@@ -11,6 +11,7 @@ namespace Assets._Core.Scripts
 	// Rename to [nameof snapchat-clone]Manager
 	public class SnapTrapManager : MonoBehaviour
 	{
+		[SerializeField] private GameObject _snapTrapScreen;
 		[SerializeField] private Button _snapTargetButton; // Also has image
 		private Image SnapImage => _snapTargetButton.GetComponent<Image>();
 
@@ -49,6 +50,7 @@ namespace Assets._Core.Scripts
 				}
 			}
 
+			MainManager.ShowOnly(_snapTrapScreen);
 			SnapImage.sprite = _newSnaps.Pop();
 		}
 

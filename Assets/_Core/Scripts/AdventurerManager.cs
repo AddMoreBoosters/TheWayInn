@@ -5,12 +5,12 @@ namespace Assets._Core.Scripts
 {
 	public class AdventurerManager : MonoBehaviour
 	{
-		private List<string> _equippedItems;
+		public List<string> EquippedItems { get; private set; }
 		public List<DungeonSequenceObject> DungeonSequences;
 
 		public void Equip(List<string> items)
 		{
-			_equippedItems = items;
+			EquippedItems = items;
 
 			FindObjectOfType<MainManager>().SendOffAdventurer();
 		}
