@@ -90,5 +90,10 @@ namespace Assets._Core.Scripts
 
 			slide.SetActive(true);
 		}
+
+		public void SetWinScreen()
+		{
+			ShowOnly(_winScreen);
+		}
 	}
 }

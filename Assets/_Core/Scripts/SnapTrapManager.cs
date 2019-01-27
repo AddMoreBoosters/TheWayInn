@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets._Core.Scripts
@@ -36,7 +37,7 @@ namespace Assets._Core.Scripts
 				_inited = true;
 			}
 
-			_successfulAdventure = false;
+			_successfulAdventure = true;
 
 			_newSnaps = new Stack<Sprite>();
 			for (var i = 0; i < sequences.Count; i++)
@@ -54,9 +55,14 @@ namespace Assets._Core.Scripts
 				else
 				{
 					print($"{s.TrapName} failed");
+					_successfulAdventure = false;
+					_newSnaps.Push(GoblinSnaps[Random.Range(0, GoblinSnaps.Length - 1)]);
 					break;
 				}
 			}
+
+			if (_successfulAdventure)
+				_newSnaps.Push(WinSnap);
 
 			FindObjectOfType<AudioManager>().PlayAudio(Vibrate);
 			_nextButton.interactable = false;
@@ -75,7 +81,19 @@ namespace Assets._Core.Scripts
 			}
 			
 			if (_newSnaps.Count == 0)
+			{
 				_nextButton.interactable = true;
+				if (_successfulAdventure)
+				{
+					_nextButton.onClick.RemoveAllListeners();
+					_nextButton.onClick.AddListener(FindObjectOfType<MainManager>().SetWinScreen);
+				}
+			}
+		}
+
+		public void RestartGame()
+		{
+			//restart
 		}
 	}
 }
