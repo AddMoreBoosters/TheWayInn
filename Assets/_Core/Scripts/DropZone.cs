@@ -15,13 +15,16 @@ public class DropZone : MonoBehaviour, IDropHandler
         Draggable draggable = eventData.pointerDrag.GetComponent<Draggable>();
         if (draggable != null)
         {
-            draggable.parentToReturnTo = this.transform;
-
-            if (itemSlot)
+            if (itemSlot && !filled)
             {
+                draggable.parentToReturnTo = this.transform;
                 itemName = eventData.pointerDrag.name;
                 filled = true;
                 GetComponentInParent<ItemSelectionManager>().checkSelection();
+            }
+            else if (!itemSlot)
+            {
+                draggable.parentToReturnTo = this.transform;
             }
         }
     }

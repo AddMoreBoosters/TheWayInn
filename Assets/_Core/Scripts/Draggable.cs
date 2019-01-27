@@ -1,14 +1,25 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
 
     public Transform parentToReturnTo = null;
+    private Transform startPosition = null;
+
+    private void Start()
+    {
+        startPosition = this.transform;
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        LayoutElement layout = GetComponent<LayoutElement>();
+        GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, layout.preferredWidth);
+        GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, layout.preferredHeight);
+
         parentToReturnTo = this.transform.parent;
         DropZone parentDropZone = GetComponentInParent<DropZone>();
         if (parentDropZone != null)
@@ -33,6 +44,14 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         this.transform.SetParent(parentToReturnTo);
         GetComponent<CanvasGroup>().blocksRaycasts = true;
+        DropZone parentDropZone = GetComponentInParent<DropZone>();
+        if (parentDropZone != null)
+        {
+            //this.transform.position = startPosition.position;
+            parentDropZone.itemName = this.name;
+            parentDropZone.filled = true;
+            GetComponentInParent<ItemSelectionManager>().checkSelection();
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
