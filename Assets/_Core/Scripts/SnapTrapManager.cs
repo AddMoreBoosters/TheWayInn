@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Assets._Core.Scripts
@@ -15,9 +12,17 @@ namespace Assets._Core.Scripts
 		[SerializeField] private Button _snapTargetButton; // Also has image
 		[SerializeField] private Button _nextButton;
 		private Image SnapImage => _snapTargetButton.GetComponent<Image>();
+		[Space]
+		public AudioClip Vibrate;
+		public AudioClip NextSnap;
+		[Space]
+		public Sprite[] GoblinSnaps;
+		public Sprite WinSnap;
 
 		private Stack<Sprite> _newSnaps;
 		private List<Sprite> _savedSnaps;
+
+		private bool _successfulAdventure = false;
 
 		private bool _inited;
 
@@ -30,6 +35,8 @@ namespace Assets._Core.Scripts
 
 				_inited = true;
 			}
+
+			_successfulAdventure = false;
 
 			_newSnaps = new Stack<Sprite>();
 			for (var i = 0; i < sequences.Count; i++)
@@ -51,25 +58,24 @@ namespace Assets._Core.Scripts
 				}
 			}
 
+			FindObjectOfType<AudioManager>().PlayAudio(Vibrate);
 			_nextButton.interactable = false;
 			MainManager.ShowOnly(_snapTrapScreen);
-			SnapImage.sprite = _newSnaps.Pop();
+			SnapImage.color = Color.clear;
 		}
 
 		private void OnSnapClick()
 		{
-			if (_newSnaps.Count > 0)
-				SnapImage.sprite = _newSnaps.Pop();
+			SnapImage.color = Color.white;
 
+			if (_newSnaps.Count > 0)
+			{
+				SnapImage.sprite = _newSnaps.Pop();
+				FindObjectOfType<AudioManager>().PlayAudio(NextSnap);
+			}
+			
 			if (_newSnaps.Count == 0)
 				_nextButton.interactable = true;
-		}
-
-		public void SetTriggerEvent(EventTrigger trigger, EventTriggerType triggerType, Action callAction)
-		{
-			EventTrigger.Entry entry = new EventTrigger.Entry { eventID = triggerType };
-			entry.callback.AddListener(_ => callAction());
-			trigger.triggers.Add(entry);
 		}
 	}
 }

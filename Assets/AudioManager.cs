@@ -27,12 +27,22 @@ namespace Assets
 		public void SetBackground(AudioClip clip)
 		{
 			Tweener bgFader = Background.DOFade(0, .2f);
-			bgFader.onComplete += delegate
+
+			if (clip)
 			{
-				Background.clip = clip;
-				bgFader.onComplete = null;
-				Background.DOFade(1, .2f);
-			};
+				bgFader.onComplete += delegate
+				{
+					Background.clip = clip;
+					Background.Play();
+					bgFader.onComplete = null;
+					Background.DOFade(.5f, .2f);
+				};
+			}
+
+			else
+			{
+				Background.clip = null;
+			}
 		}
 	}
 }
