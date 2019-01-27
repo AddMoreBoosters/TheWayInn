@@ -18,6 +18,7 @@ namespace Assets._Core.Scripts
 		[SerializeField] private Transform _backgroundContainer;
 		[SerializeField] private GameObject _winScreen;
 		[Space]
+		public GameObject sleepScreen;
 		public GameObject wakeupScreen;
 		[Space]
 		public AudioClip InnBgAudio;
@@ -59,21 +60,16 @@ namespace Assets._Core.Scripts
 		/// <summary> Wake up, fade in screen with phone, and new notifications </summary>
 		public void SendOffAdventurer()
 		{
-			_backgroundContainer.gameObject.SetActive(false);
 			StartCoroutine(NewDayTimer());
 		}
 		
 		// Animates sequence, going to bed, waking up, checking phone
 		private IEnumerator NewDayTimer()
 		{
-			print("Bye adventurer");
+			ShowOnly(sleepScreen);
 			yield return new WaitForSeconds(1);
-			print("Goodnight");
-			yield return new WaitForSeconds(1);
-			print("Good morning");
 			ShowOnly(wakeupScreen);
 			yield return new WaitForSeconds(1);
-			print("Checks phone");
 			ShowOnly(_backgroundContainer.gameObject);
 			_snapTrapManager.SetNewSnaps(_adventurerManager.DungeonSequences, _adventurerManager.EquippedItems);
 		}

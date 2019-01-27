@@ -91,11 +91,16 @@ namespace Assets._Core.Scripts
 			
 			if (_newSnaps.Count == 0)
 			{
+				_nextButton.onClick.RemoveAllListeners();
 				_nextButton.interactable = true;
 				if (_successfulAdventure)
 				{
-					_nextButton.onClick.RemoveAllListeners();
 					_nextButton.onClick.AddListener(FindObjectOfType<MainManager>().SetWinScreen);
+				}
+
+				else
+				{
+					_nextButton.onClick.AddListener(FindObjectOfType<MainManager>().NewAdventurer);
 				}
 			}
 		}
