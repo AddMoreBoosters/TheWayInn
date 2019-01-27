@@ -176,7 +176,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToReturnTo: {fileID: 0}
-  soundfx: {fileID: 8300000, guid: 4b90539d8c75716448f3e5c48ad52b15, type: 3}
+  pickupSound: {fileID: 8300000, guid: 4b90539d8c75716448f3e5c48ad52b15, type: 3}
+  bartenderCommentSound:
+  - {fileID: 8300000, guid: 12e6f44b699716d4994650502daf5b8c, type: 3}
+  - {fileID: 8300000, guid: 525151fdd3584cf42b5a4a1e3ad0baa8, type: 3}
+  - {fileID: 8300000, guid: 102bf86d137cc3b47b0c6276495f9521, type: 3}
 --- !u!114 &4124375102620400856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +417,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToReturnTo: {fileID: 0}
-  soundfx: {fileID: 8300000, guid: eea345e51adddba43ad16c2bd25119a6, type: 3}
+  pickupSound: {fileID: 8300000, guid: eea345e51adddba43ad16c2bd25119a6, type: 3}
+  bartenderCommentSound:
+  - {fileID: 8300000, guid: 99b31fa2b7b2bb941b25eb58ef23a911, type: 3}
 --- !u!114 &8646077596862999293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,7 +616,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToReturnTo: {fileID: 0}
-  soundfx: {fileID: 0}
+  pickupSound: {fileID: 0}
+  bartenderCommentSound:
+  - {fileID: 8300000, guid: bbf07fa7198bd3645bfd320fc804723a, type: 3}
 --- !u!114 &7334336486437757348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -733,7 +741,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToReturnTo: {fileID: 0}
-  soundfx: {fileID: 8300000, guid: a23c3c4aa575b0c4f8b08b61ed00f667, type: 3}
+  pickupSound: {fileID: 8300000, guid: a23c3c4aa575b0c4f8b08b61ed00f667, type: 3}
+  bartenderCommentSound:
+  - {fileID: 8300000, guid: 7df5ef4827798504c9afccae047a4113, type: 3}
+  - {fileID: 8300000, guid: c402b238521368c45b821e0c7b1d133f, type: 3}
+  - {fileID: 8300000, guid: 036fa6bde62c3184092439a12e2ee4e8, type: 3}
 --- !u!114 &6812931703805515218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,7 +868,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToReturnTo: {fileID: 0}
-  soundfx: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: d65f6719ed8e2fb4f96e15724a2cbecf, type: 3}
+  bartenderCommentSound:
+  - {fileID: 8300000, guid: a94ff99056abed745a74c654409908cb, type: 3}
 --- !u!114 &2652761562838937619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1093,7 +1107,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToReturnTo: {fileID: 0}
-  soundfx: {fileID: 8300000, guid: 14ef6c2115250e54c989d7528816b6f7, type: 3}
+  pickupSound: {fileID: 8300000, guid: 14ef6c2115250e54c989d7528816b6f7, type: 3}
+  bartenderCommentSound:
+  - {fileID: 8300000, guid: d39a9d7cd34136e43be461b638b69c1b, type: 3}
 --- !u!114 &4206671795912722610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1216,7 +1232,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToReturnTo: {fileID: 0}
-  soundfx: {fileID: 8300000, guid: c24f87b7addd8a445a48cd9ba74efcc2, type: 3}
+  pickupSound: {fileID: 8300000, guid: c24f87b7addd8a445a48cd9ba74efcc2, type: 3}
+  bartenderCommentSound:
+  - {fileID: 8300000, guid: 32aeee3d08540034e8ed449138053ca4, type: 3}
 --- !u!114 &1668865064338467730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1651,7 +1669,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToReturnTo: {fileID: 0}
-  soundfx: {fileID: 8300000, guid: 1aeaf321ff2f5ed4a96e71fb87ea9631, type: 3}
+  pickupSound: {fileID: 8300000, guid: 1aeaf321ff2f5ed4a96e71fb87ea9631, type: 3}
+  bartenderCommentSound:
+  - {fileID: 8300000, guid: 7aecf1f59b1bf12478f1f5c7fce74536, type: 3}
+  - {fileID: 8300000, guid: 514e3b118b05cdb46ae0b235cdd20e81, type: 3}
+  - {fileID: 8300000, guid: 1e6aa35334baf194d9da6e1a1f40d150, type: 3}
 --- !u!114 &6456978238848609864
 MonoBehaviour:
   m_ObjectHideFlags: 0

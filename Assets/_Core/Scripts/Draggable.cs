@@ -12,7 +12,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public Transform parentToReturnTo = null;
     private Vector3 startPosition;
     public AudioClip pickupSound = null;
-    public AudioClip bartenderCommentSound = null;
+    public AudioClip[] bartenderCommentSound = null;
 
     private void Start()
     {
@@ -31,7 +31,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         }
         if (bartenderCommentSound != null)
         {
-            FindObjectOfType<AudioManager>().PlayAudio(bartenderCommentSound);
+            FindObjectOfType<AudioManager>().PlayAudio(bartenderCommentSound[Random.Range(0, bartenderCommentSound.Length)]);
         }
 
         parentToReturnTo = this.transform.parent;
