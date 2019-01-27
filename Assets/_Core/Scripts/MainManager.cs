@@ -17,6 +17,8 @@ namespace Assets._Core.Scripts
 		[SerializeField] private Transform _introContainer;
 		[SerializeField] private Transform _backgroundContainer;
 		[SerializeField] private GameObject _winScreen;
+		[Space]
+		public AudioClip InnBgAudio;
 		
 		private void Start()
 		{
@@ -32,6 +34,8 @@ namespace Assets._Core.Scripts
 		{
 			_startScreen.SetActive(false);
 			_introContainer.gameObject.SetActive(true);
+
+			FindObjectOfType<AudioManager>().SetBackground(InnBgAudio);
 
 			// Play video, slides, or w/e
 
