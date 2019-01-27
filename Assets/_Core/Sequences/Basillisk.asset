@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrapName: Basillisk
   CorrectItemName: Blindfold
-  BeforeSequenceSnap: {fileID: 21300000, guid: f4682899ea3927340aa54807e322f3af, type: 3}
-  AfterSequenceSnap: {fileID: 21300000, guid: adbf8c6cb91ce4c469493baca29094f2, type: 3}
+  BeforeSequenceSnap: {fileID: 21300000, guid: 523c43b53ed446c468ce23c9dfa02258, type: 3}
+  AfterSequenceSnap: {fileID: 21300000, guid: f4682899ea3927340aa54807e322f3af, type: 3}

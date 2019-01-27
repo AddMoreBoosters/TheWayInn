@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrapName: Doll
   CorrectItemName: Gasoline
-  BeforeSequenceSnap: {fileID: 21300000, guid: 02e946f9d0d590545a0f9cfc4ee49735, type: 3}
-  AfterSequenceSnap: {fileID: 21300000, guid: adbf8c6cb91ce4c469493baca29094f2, type: 3}
+  BeforeSequenceSnap: {fileID: 21300000, guid: 277c96f0b1f513a4d81bf1b90be70c63, type: 3}
+  AfterSequenceSnap: {fileID: 21300000, guid: 2721791319fea714b88ede7b5ea2e9e2, type: 3}

@@ -18,6 +18,8 @@ namespace Assets._Core.Scripts
 		[SerializeField] private Transform _backgroundContainer;
 		[SerializeField] private GameObject _winScreen;
 		[Space]
+		public GameObject wakeupScreen;
+		[Space]
 		public AudioClip InnBgAudio;
 		
 		private void Start()
@@ -69,6 +71,7 @@ namespace Assets._Core.Scripts
 			print("Goodnight");
 			yield return new WaitForSeconds(1);
 			print("Good morning");
+			ShowOnly(wakeupScreen);
 			yield return new WaitForSeconds(1);
 			print("Checks phone");
 			ShowOnly(_backgroundContainer.gameObject);

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,16 +39,17 @@ namespace Assets._Core.Scripts
 
 			_successfulAdventure = true;
 
-			_newSnaps = new Stack<Sprite>();
+
+			List<Sprite> snapList = new List<Sprite>();
 			for (var i = 0; i < sequences.Count; i++)
 			{
 				DungeonSequenceObject s = sequences[i];
-				_newSnaps.Push(s.BeforeSequenceSnap);
+				snapList.Add(s.BeforeSequenceSnap);
 
 				// Matching item
 				if (s.CorrectItemName == eqippedItems[i])
 				{
-					_newSnaps.Push(s.AfterSequenceSnap);
+					snapList.Add(s.AfterSequenceSnap);
 					print($"{s.TrapName} was successful");
 				}
 
@@ -55,13 +57,21 @@ namespace Assets._Core.Scripts
 				{
 					print($"{s.TrapName} failed");
 					_successfulAdventure = false;
-					_newSnaps.Push(GoblinSnaps[Random.Range(0, GoblinSnaps.Length - 1)]);
+					snapList.Add(GoblinSnaps[Random.Range(0, GoblinSnaps.Length - 1)]);
 					break;
 				}
 			}
 
 			if (_successfulAdventure)
-				_newSnaps.Push(WinSnap);
+				snapList.Add(WinSnap);
+
+			_newSnaps = new Stack<Sprite>();
+
+			for (int i = snapList.Count - 1; i >= 0; i--)
+			{
+				Sprite sprite = snapList[i];
+				_newSnaps.Push(sprite);
+			}
 
 			FindObjectOfType<AudioManager>().PlayAudio(Vibrate);
 			_nextButton.interactable = false;
