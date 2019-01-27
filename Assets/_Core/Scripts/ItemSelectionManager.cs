@@ -38,11 +38,26 @@ public class ItemSelectionManager : MonoBehaviour
 
     public void ConfirmSelected()
     {
-		FindObjectOfType<AdventurerManager>().Equip(new List<string>
-		{
-			"Bunny Slippers",
-			"Climbing Equipment",
-			"Strength Potion"
-		});
+        List<string> equippedItems = new List<string>();
+
+        DropZone[] itemSlots = this.GetComponentsInChildren<DropZone>();
+
+        foreach (DropZone slot in itemSlots)
+        {
+            if (slot.itemSlot)
+            {
+                Debug.Log("Equipping item " + slot.itemName);
+                equippedItems.Add(slot.itemName);
+            }
+        }
+
+        FindObjectOfType<AdventurerManager>().Equip(equippedItems);
+
+        //FindObjectOfType<AdventurerManager>().Equip(new List<string>
+        //{
+        //	"Bunny Slippers",
+        //	"Climbing Equipment",
+        //	"Strength Potion"
+        //});
     }
 }

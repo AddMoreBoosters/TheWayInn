@@ -3,11 +3,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
 
     public Transform parentToReturnTo = null;
     private Vector3 startPosition;
+    public AudioClip soundfx;
 
     private void Start()
     {
