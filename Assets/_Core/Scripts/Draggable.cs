@@ -11,7 +11,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public Transform parentToReturnTo = null;
     private Vector3 startPosition;
-    public AudioClip soundfx;
+    public AudioClip pickupSound = null;
+    public AudioClip bartenderCommentSound = null;
 
     private void Start()
     {
@@ -24,9 +25,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, layout.preferredWidth);
         GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, layout.preferredHeight);
 
-        if (soundfx != null)
+        if (pickupSound != null)
         {
-            
+            FindObjectOfType<AudioManager>().PlayAudio(pickupSound);
+        }
+        if (bartenderCommentSound != null)
+        {
+            FindObjectOfType<AudioManager>().PlayAudio(bartenderCommentSound);
         }
 
         parentToReturnTo = this.transform.parent;
