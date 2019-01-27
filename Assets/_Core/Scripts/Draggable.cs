@@ -3,13 +3,16 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+using Assets._Core.Scripts;
+
 
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
 
     public Transform parentToReturnTo = null;
     private Vector3 startPosition;
-    public AudioClip soundfx;
+    public AudioClip pickupSound = null;
+    public AudioClip bartenderCommentSound = null;
 
     private void Start()
     {
@@ -21,6 +24,15 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         LayoutElement layout = GetComponent<LayoutElement>();
         GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, layout.preferredWidth);
         GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, layout.preferredHeight);
+
+        if (pickupSound != null)
+        {
+            FindObjectOfType<AudioManager>().PlayAudio(pickupSound);
+        }
+        if (bartenderCommentSound != null)
+        {
+            FindObjectOfType<AudioManager>().PlayAudio(bartenderCommentSound);
+        }
 
         parentToReturnTo = this.transform.parent;
         DropZone parentDropZone = GetComponentInParent<DropZone>();
