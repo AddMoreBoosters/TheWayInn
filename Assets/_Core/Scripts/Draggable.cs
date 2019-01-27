@@ -7,11 +7,11 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 {
 
     public Transform parentToReturnTo = null;
-    private Transform startPosition = null;
+    private Vector3 startPosition;
 
     private void Start()
     {
-        startPosition = this.transform;
+        startPosition = this.transform.position;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -47,10 +47,18 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         DropZone parentDropZone = GetComponentInParent<DropZone>();
         if (parentDropZone != null)
         {
-            //this.transform.position = startPosition.position;
-            parentDropZone.itemName = this.name;
-            parentDropZone.filled = true;
-            GetComponentInParent<ItemSelectionManager>().checkSelection();
+            if (parentDropZone.itemSlot)
+            {
+                parentDropZone.itemName = this.name;
+                parentDropZone.filled = true;
+                GetComponentInParent<ItemSelectionManager>().checkSelection();
+            }
+            else
+            {
+                Debug.Log("Move to start position");
+                //this.transform.position.Set(startPosition.x, startPosition.y, startPosition.z);
+                GetComponent<RectTransform>().SetPositionAndRotation(startPosition, new Quaternion(0, 0, 0, 0));
+            }
         }
     }
 
